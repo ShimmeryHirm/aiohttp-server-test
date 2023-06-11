@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  bot:
+    container_name: web_server
+
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+
+    stop_signal: SIGINT
+
+    restart: "on-failure"
+
+    entrypoint: [ "python3", "-u",  "main.py" ]
+
+    ports:
+      - "8080:8080"
+
+
